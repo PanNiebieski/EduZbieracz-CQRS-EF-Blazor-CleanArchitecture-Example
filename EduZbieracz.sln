@@ -15,9 +15,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{541A3023-A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{B5B500F2-258E-4921-A015-859A9943567F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduZbieracz.Domain", "EduZbieracz.Domain\EduZbieracz.Domain.csproj", "{E68EEF37-5062-4D94-BD6B-B78CF95AEC23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduZbieracz.Domain", "EduZbieracz.Domain\EduZbieracz.Domain.csproj", "{E68EEF37-5062-4D94-BD6B-B78CF95AEC23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduZbieracz.Application", "EduZbieracz.Application\EduZbieracz.Application.csproj", "{B88BB49A-108C-4B36-B8B1-BCDC46025FA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduZbieracz.Application", "EduZbieracz.Application\EduZbieracz.Application.csproj", "{B88BB49A-108C-4B36-B8B1-BCDC46025FA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E8877611-2F5E-4872-8FCB-3C4F0E5244D2}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

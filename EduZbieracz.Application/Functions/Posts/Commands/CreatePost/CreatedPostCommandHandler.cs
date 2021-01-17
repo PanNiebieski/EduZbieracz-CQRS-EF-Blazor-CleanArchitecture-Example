@@ -12,25 +12,26 @@ using System.Threading.Tasks;
 namespace EduZbieracz.Application.Functions.Posts.Commands.CreatePost
 {
     public class CreatedPostCommandHandler
-        : IRequestHandler<CreatedPostCommand, int>
+        : IRequestHandler<CreatedPostCommand, CreatedPostCommandResponse>
     {
         private readonly IPostRepository _postRepository;
         private readonly IMapper _mapper;
 
-        public async Task<int> Handle(CreatedPostCommand request,
+        public async Task<CreatedPostCommandResponse>
+            Handle(CreatedPostCommand request,
             CancellationToken cancellationToken)
         {
-            var validator = new CreatedPostCommandValidator();
+            var validator = new CreatedPostCommandValidator(_postRepository);
             var validatorResult = await validator.ValidateAsync(request);
 
             if (!validatorResult.IsValid)
-                throw new ValidationEduException(validatorResult);
+                return new CreatedPostCommandResponse(validatorResult);
 
             var post = _mapper.Map<Post>(request);
 
             post = await _postRepository.AddAsync(post);
 
-            return post.PostId;
+            return new CreatedPostCommandResponse(post.PostId);
         }
 
         public CreatedPostCommandHandler(IPostRepository postRepository,

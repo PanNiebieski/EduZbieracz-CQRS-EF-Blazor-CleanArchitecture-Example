@@ -18,9 +18,43 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Functions\Categories\Commands\CreateCategory\" />
-    <Folder Include="Functions\Webinars\Command\" />
-    <Folder Include="Functions\Webinars\Queries\GetWebinarList\" />
+    <EditorConfigFiles Update="D:\PanNiebieski\Projekty2\EdoZbieracz\EdoZbieracz\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="D:\PanNiebieski\Projekty2\EdoZbieracz\EdoZbieracz\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="D:\PanNiebieski\Projekty2\EdoZbieracz\EdoZbieracz\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="D:\PanNiebieski\Projekty2\EdoZbieracz\EdoZbieracz\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="D:\PanNiebieski\Projekty2\EdoZbieracz\EdoZbieracz\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="D:\PanNiebieski\Projekty2\EdoZbieracz\EdoZbieracz\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="D:\PanNiebieski\Projekty2\EdoZbieracz\EdoZbieracz\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="D:\PanNiebieski\Projekty2\EdoZbieracz\EdoZbieracz\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="D:\PanNiebieski\Projekty2\EdoZbieracz\EdoZbieracz\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="D:\PanNiebieski\Projekty2\EdoZbieracz\EdoZbieracz\.editorconfig" />
   </ItemGroup>
 
 </Project>
