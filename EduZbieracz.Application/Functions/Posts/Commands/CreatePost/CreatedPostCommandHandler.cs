@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using EduZbieracz.Application.Contracts.Persistence;
-using EduZbieracz.Application.Exceptions;
 using EduZbieracz.Domain.Entities;
 using MediatR;
 using System;

@@ -14,16 +14,19 @@ namespace EduZbieracz.Application.Responses
 
         public BaseResponse()
         {
+            ValidationErrors = new List<string>();
             Success = true;
         }
         public BaseResponse(string message = null)
         {
+            ValidationErrors = new List<string>();
             Success = true;
             Message = message;
         }
 
         public BaseResponse(string message, bool success)
         {
+            ValidationErrors = new List<string>();
             Success = success;
             Message = message;
         }
@@ -31,7 +34,7 @@ namespace EduZbieracz.Application.Responses
         public BaseResponse(ValidationResult validationResult)
         {
             ValidationErrors = new List<String>();
-            Success = validationResult.Errors.Count > 0;
+            Success = validationResult.Errors.Count < 0;
             foreach (var item in validationResult.Errors)
             {
                 ValidationErrors.Add(item.ErrorMessage);

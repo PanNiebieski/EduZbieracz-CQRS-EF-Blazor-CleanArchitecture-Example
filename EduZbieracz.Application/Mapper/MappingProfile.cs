@@ -31,7 +31,8 @@ namespace EduZbieracz.Application.Mapper
             CreateMap<Category, CreatedCategoryCommand>().ReverseMap();
 
             CreateMap<Webinar, WebinarsByDateViewModel>().ReverseMap();
-            CreateMap<Webinar, CreatedWebinarCommand>();
+
+            CreateMap<Webinar, CreatedWebinarCommand>().ReverseMap();
         }
     }
 }
