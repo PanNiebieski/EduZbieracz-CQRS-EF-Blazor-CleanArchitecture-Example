@@ -21,7 +21,7 @@ namespace EduZbieracz.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("/getpagedordersformonth", Name = "GetPagedOrdersForMonth")]
+        [HttpGet("/getwebinarfordate", Name = "GetPagedWebinarsForMonth")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<PageWebinarByDateViewModel>> GetPagedOrdersForMonth(DateTime date, int page, int pagesize)

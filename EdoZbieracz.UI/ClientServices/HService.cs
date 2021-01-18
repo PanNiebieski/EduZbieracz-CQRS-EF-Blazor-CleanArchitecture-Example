@@ -1,0 +1,16 @@
+﻿using EdoZbieracz.UI.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace EdoZbieracz.UI.ClientServices
+{
+    public class BlazorService
+    {
+
+
+
+
+    }
+}

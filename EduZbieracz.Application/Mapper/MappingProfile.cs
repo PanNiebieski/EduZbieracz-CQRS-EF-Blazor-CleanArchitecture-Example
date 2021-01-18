@@ -24,6 +24,7 @@ namespace EduZbieracz.Application.Mapper
             CreateMap<Category, CategoryInListViewModel>();
             CreateMap<Category, CategoryPostDto>();
             CreateMap<Category, CategoryPostListViewModel>();
+            CreateMap<Post, CategoryPostDto>();
 
             CreateMap<Post, CreatedPostCommand>().ReverseMap();
             CreateMap<Post, UpdatePostCommand>().ReverseMap();

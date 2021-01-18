@@ -31,16 +31,16 @@ namespace EduZbieracz.Api.Controllers
             return Ok(categoryInListViewModel);
         }
 
-        [HttpGet("allwithposts", Name = "GetCategoriesWithEvents")]
+        [HttpGet("allwithposts", Name = "GetCategoriesWithPosts")]
         [ProducesDefaultResponseType]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<CategoryPostListViewModel>>> GetCategoriesWithPosts
             (SearchCategoryOptions searchOptions)
         {
-            GetCategoriesWithPostListQuery getCategoriesListWithEventsQuery =
+            GetCategoriesWithPostListQuery getCategoriesListWithPostsQuery =
                 new GetCategoriesWithPostListQuery() { searchCategory = searchOptions };
 
-            var dtos = await _mediator.Send(getCategoriesListWithEventsQuery);
+            var dtos = await _mediator.Send(getCategoriesListWithPostsQuery);
             return Ok(dtos);
         }
 

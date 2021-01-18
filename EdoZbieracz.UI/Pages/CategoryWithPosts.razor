@@ -1,0 +1,56 @@
+﻿@page "/categorywithposts"
+
+<h3>Event Category Overview</h3>
+
+<br />
+
+<p><input class="custom-checkbox" type="checkbox" id="includeHistory" />   Include past events?</p>
+
+@if (Categories == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Category name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cat in Categories)
+            {
+                <tr>
+                    <td>@cat.Name </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="nested-table ml-auto mr-auto">
+                            <thead>
+                                <tr>
+                                    <th>Tytuł</th>
+                                    <th class="category-event-header">Data</th>
+                                    <th class="category-event-header">Twórca</th>
+                                    <th class="category-event-header">Cena</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var ev in cat.Posts)
+                                {
+                                    <tr>
+                                        <td class="event-name">@ev.Title </td>
+                                        <td class="event-date">@ev.Date.ToShortDateString() </td>
+                                        <td class="event-artist">@ev.Author</td>
+                                        <td class="event-price">@ev.Title</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
