@@ -11,35 +11,35 @@ namespace EduZbieracz.Persistence.EF.DummyData
         {
             Category c1 = new Category()
             {
-                CategoryId = 1,
+                CategoryId = DummySeed.Csharp,
                 Name = "CSharp",
                 DisplayName = "C#"
             };
 
             Category c2 = new Category()
             {
-                CategoryId = 2,
+                CategoryId = DummySeed.Aspnet,
                 Name = "aspnet",
                 DisplayName = "ASP.NET"
             };
 
             Category c3 = new Category()
             {
-                CategoryId = 3,
+                CategoryId = DummySeed.TrikiZWindows,
                 Name = "triki-z-windows",
                 DisplayName = "Triki z Windows"
             };
 
             Category c4 = new Category()
             {
-                CategoryId = 4,
+                CategoryId = DummySeed.Docker,
                 Name = "docker",
                 DisplayName = "Docker"
             };
 
             Category c5 = new Category()
             {
-                CategoryId = 5,
+                CategoryId = DummySeed.Filzofia,
                 Name = "filozofia",
                 DisplayName = "Filozofia"
             };

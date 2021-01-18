@@ -10,7 +10,7 @@ namespace EduZbieracz.Application
 {
     public static class ApplicationInstallation
     {
-        public static IServiceCollection Install(this IServiceCollection services)
+        public static IServiceCollection AddEduZbieraczApplication(this IServiceCollection services)
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());

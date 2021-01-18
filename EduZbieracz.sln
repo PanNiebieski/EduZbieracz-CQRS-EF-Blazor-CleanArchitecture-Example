@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduZbieracz.Persistence.EF"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduZbieracz.Application.UnitTest", "EduZbieracz.Application.UnitTest\EduZbieracz.Application.UnitTest.csproj", "{38AA7213-D9A9-406B-86DF-75BCC552EC33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduZbieracz.Api", "EduZbieracz.Api\EduZbieracz.Api.csproj", "{A5868D41-40C3-427E-8C0B-5DA808EEEE9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{38AA7213-D9A9-406B-86DF-75BCC552EC33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38AA7213-D9A9-406B-86DF-75BCC552EC33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38AA7213-D9A9-406B-86DF-75BCC552EC33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5868D41-40C3-427E-8C0B-5DA808EEEE9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5868D41-40C3-427E-8C0B-5DA808EEEE9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5868D41-40C3-427E-8C0B-5DA808EEEE9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5868D41-40C3-427E-8C0B-5DA808EEEE9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{B88BB49A-108C-4B36-B8B1-BCDC46025FA9} = {7390878F-F9BD-4284-B32D-8CF00F2DCD40}
 		{DC033712-5092-4034-8862-2E9169437CDF} = {C939344C-9DC2-4EA9-A5CD-864064D89ABF}
 		{38AA7213-D9A9-406B-86DF-75BCC552EC33} = {541A3023-A688-43E2-9E0B-358813F0EC8B}
+		{A5868D41-40C3-427E-8C0B-5DA808EEEE9F} = {28A6140B-6C2A-4B48-85DE-0FCA34E1FD2F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF0B02BD-221D-4CF1-AA87-367023870CEC}

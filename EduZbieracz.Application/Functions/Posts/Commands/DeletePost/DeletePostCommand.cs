@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EduZbieracz.Application.Functions.Posts.Commands.DeleteEvent
+namespace EduZbieracz.Application.Functions.Posts.Commands.DeletePost
 {
     public class DeletePostCommand : IRequest
     {

@@ -11,7 +11,7 @@ namespace EduZbieracz.Persistence.EF
 {
     public static class PersistenceWithEFRegistration
     {
-        public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddEduZbieraczPersistenceEFServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<EduZbieraczContext>(options =>
                 options.UseSqlServer(configuration.
@@ -21,7 +21,7 @@ namespace EduZbieracz.Persistence.EF
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IWebinaryRepository, WebinaryRepository>();
-            services.AddScoped<IPostRepository, IPostRepository>();
+            services.AddScoped<IPostRepository, PostRepository>();
 
             return services;
         }

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace EduZbieracz.Application.Functions.Posts.Commands.DeleteEvent
+namespace EduZbieracz.Application.Functions.Posts.Commands.DeletePost
 {
     public class DeletePostCommandHandler : IRequestHandler<DeletePostCommand>
     {

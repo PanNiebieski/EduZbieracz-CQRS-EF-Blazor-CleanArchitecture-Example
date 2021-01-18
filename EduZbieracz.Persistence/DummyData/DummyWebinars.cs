@@ -79,7 +79,7 @@ namespace EduZbieracz.Persistence.EF.DummyData
                 Date = DateTime.Now.AddDays(-90),
                 Description = @"Jak wygląda szukanie pracy jako programista w 2020 roku? Czy jest lepiej, czy jest gorzej?",
                 FacebookEventUrl = "https://www.facebook.com/events/407358067213893/",
-                Id = 4,
+                Id = 5,
                 ImageUrl = "https://cezarywalenciuk.pl/posts/fileswebinars/15_csharpirekordy.jpg",
                 SlidesUrl = "https://panniebieski.github.io/webinar_CSharp9-Rekordy-i-duze-zamiany-w-net-5/",
                 WatchFacebookLink = "https://www.facebook.com/watch/live/?v=2835303250091399&ref=watch_permalink",

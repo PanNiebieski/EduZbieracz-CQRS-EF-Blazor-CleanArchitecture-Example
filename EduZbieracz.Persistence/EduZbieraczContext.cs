@@ -10,6 +10,8 @@ namespace EduZbieracz.Persistence
 {
     public class EduZbieraczContext : DbContext
     {
+
+
         public EduZbieraczContext(DbContextOptions<EduZbieraczContext> options)
             : base(options)
         {
@@ -42,6 +44,8 @@ namespace EduZbieracz.Persistence
                 ApplyConfigurationsFromAssembly
                 (typeof(EduZbieraczContext).Assembly);
 
+
+
             foreach (var item in DummyCategories.Get())
             {
                 modelBuilder.Entity<Category>().HasData(item);
@@ -49,7 +53,14 @@ namespace EduZbieracz.Persistence
 
             foreach (var item in DummyPosts.Get())
             {
-                modelBuilder.Entity<Post>().HasData(item);
+                modelBuilder.Entity<Post>(b =>
+                {
+                    b.HasData(item);
+                    //b.OwnsOne(e => e.Category).HasData(item.Category);
+                });
+
+                //modelBuilder.Entity<Post>().HasData(item);
+                //modelBuilder.owns
             }
 
             foreach (var item in DummyWebinars.Get())
