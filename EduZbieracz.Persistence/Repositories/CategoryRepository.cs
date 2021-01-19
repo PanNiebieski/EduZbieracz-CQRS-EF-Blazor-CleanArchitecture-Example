@@ -21,7 +21,27 @@ namespace EduZbieracz.Persistence.EF.Repositories
 
             if (searchCategory == SearchCategoryOptions.FirstBestAllTheTime)
             {
-                allCategories.ForEach(p => p.Posts.Max(m => m.Rate));
+
+                foreach (var c in allCategories)
+                {
+                    Post max = null;
+                    foreach (var p in c.Posts)
+                    {
+                        if (max == null)
+                        {
+                            max = p;
+                            break;
+                        }
+
+                        if (max.Rate < p.Rate)
+                            max = p;
+
+                    }
+                    c.Posts = new List<Post>();
+                    if (max != null)
+                        c.Posts.Add(max);
+                }
+
                 return allCategories;
             }
             else if (searchCategory == SearchCategoryOptions.FirstBestThisMonth)
@@ -32,9 +52,29 @@ namespace EduZbieracz.Persistence.EF.Repositories
                 c.Posts.Any(p => (p.Date.Month == d.Month && d.Year == p.Date.Year)))
                     .ToList();
 
-                allCategories.ForEach(p => p.Posts.Max(m => m.Rate));
+                foreach (var c in allCategories)
+                {
+                    Post max = null;
+                    foreach (var p in c.Posts)
+                    {
+                        if (max == null)
+                        {
+                            max = p;
+                            break;
+                        }
+
+                        if (max.Rate < p.Rate)
+                            max = p;
+
+                    }
+                    c.Posts = new List<Post>();
+                    if (max != null)
+                        c.Posts.Add(max);
+                }
+
                 return allCategories;
             }
+
 
             return allCategories;
         }

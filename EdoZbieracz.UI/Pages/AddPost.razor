@@ -1,5 +1,76 @@
-﻿<h3>AddPost</h3>
+﻿@page "/addpost"
+@page "/addpost/{PostId}"
 
-@code {
+<h1 class="page-title">Details for @PostDetailViewModel.Title</h1>
 
+@Message
+
+<EditForm Model="@PostDetailViewModel" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary></ValidationSummary>
+
+    <div class="form-group row">
+        <label for="title" class="col-sm-3">Post title: </label>
+        <InputText id="title" class="form-control col-sm-8" @bind-Value="@PostDetailViewModel.Title" placeholder="Enter post title"></InputText>
+        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => PostDetailViewModel.Title)" />
+    </div>
+    <div class="form-group row">
+        <label for="link" class="col-sm-3">Url : </label>
+        <InputText id="link" class="form-control col-sm-8" @bind-Value="@PostDetailViewModel.Url" placeholder="Enter Url"></InputText>
+        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => PostDetailViewModel.Url)" />
+
+    </div>
+
+    <div class="form-group row">
+        <label for="rate" class="col-sm-3">Rate : </label>
+        <InputNumber id="rate" class="form-control col-sm-8" @bind-Value="@PostDetailViewModel.Rate" placeholder="Enter price"></InputNumber>
+        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => PostDetailViewModel.Rate)" />
+
+    </div>
+
+    <div class="form-group row">
+        <label for="author" class="col-sm-3">Author name: </label>
+        <InputText id="author" class="form-control col-sm-8" @bind-Value="@PostDetailViewModel.Author" placeholder="Enter artist"></InputText>
+        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => PostDetailViewModel.Author)" />
+
+    </div>
+
+    <div class="form-group row">
+        <label for="date" class="col-sm-3">Post date: </label>
+        <InputDate id="date" class="form-control col-sm-8" @bind-Value="@PostDetailViewModel.Date"></InputDate>
+    </div>
+
+    <div class="form-group row">
+        <label for="description" class="col-sm-3">Description: </label>
+        <InputTextArea id="description" class="form-control col-sm-8" @bind-Value="@PostDetailViewModel.Description" placeholder="Enter description"></InputTextArea>
+        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => PostDetailViewModel.Description)" />
+    </div>
+
+    <div class="form-group row">
+        <label for="imageurl" class="col-sm-3">Image: </label>
+        <InputText id="imageurl" class="form-control col-sm-8" @bind-Value="@PostDetailViewModel.ImageUrl" placeholder="Enter image URL"></InputText>
+        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => PostDetailViewModel.ImageUrl)" />
+    </div>
+
+    <div class="form-group row">
+        <label for="category" class="col-sm-3">Category: </label>
+        <InputSelect id="category" class="form-control col-sm-8" @bind-Value="@SelectedCategoryId">
+            @foreach (var category in Categories)
+            {
+                <option value="@category.CategoryId">@category.Name</option>
+            }
+        </InputSelect>
+    </div>
+
+    <button type="submit" class="submit-button">Save Post</button>
+
+</EditForm>
+
+@if (SelectedPostId != 0)
+{
+    <p>
+        <button @onclick="DeletePost" class="delete-button">Delete post</button>
+    </p>
 }
+<br />
+<p class="back-to-catalog mt-3"><img src="img/back-arrow.svg" /><a @onclick="@NavigateToPosts">Back to list</a></p>

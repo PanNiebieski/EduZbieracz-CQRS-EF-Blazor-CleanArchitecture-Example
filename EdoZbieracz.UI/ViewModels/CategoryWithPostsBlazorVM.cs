@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 namespace EdoZbieracz.UI.ViewModels
 {
-    public class CategoryBlazorViewModel
+    public class CategoryWithPostsBlazorVM
     {
         public int CategoryId { get; set; }
         public string Name { get; set; }
         public string Display { get; set; }
+        public ICollection<PostInsideCategoryBlazorVM> Posts { get; set; }
     }
 }

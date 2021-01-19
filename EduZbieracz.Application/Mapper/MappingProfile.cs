@@ -6,6 +6,8 @@ using EduZbieracz.Application.Functions.Posts;
 using EduZbieracz.Application.Functions.Posts.Commands.CreatePost;
 using EduZbieracz.Application.Functions.Posts.Commands.UpdatePost;
 using EduZbieracz.Application.Functions.Webinars.Command;
+using EduZbieracz.Application.Functions.Webinars.Command.UpdateWebinar;
+using EduZbieracz.Application.Functions.Webinars.Queries.GetWebinar;
 using EduZbieracz.Application.Functions.Webinars.Queries.GetWebinarListByDate;
 using EduZbieracz.Domain.Entities;
 
@@ -34,6 +36,11 @@ namespace EduZbieracz.Application.Mapper
             CreateMap<Webinar, WebinarsByDateViewModel>().ReverseMap();
 
             CreateMap<Webinar, CreatedWebinarCommand>().ReverseMap();
+            CreateMap<Webinar, WebinarViewModel>().ReverseMap();
+
+            CreateMap<Webinar, UpdateWebinarCommand>().ReverseMap();
+
+
         }
     }
 }

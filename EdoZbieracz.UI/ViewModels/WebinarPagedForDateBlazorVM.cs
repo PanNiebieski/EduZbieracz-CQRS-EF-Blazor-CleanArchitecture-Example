@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EdoZbieracz.UI.ViewModels
 {
-    public class WebinarPagedForDateBlazorViewModel
+    public class WebinarPagedForDateBlazorVM
     {
         public int PageSize { get; set; }
 
@@ -13,6 +13,6 @@ namespace EdoZbieracz.UI.ViewModels
 
         public int AllCount { get; set; }
 
-        public ICollection<WebinarForDateListBlazorViewModel> Webinars { get; set; }
+        public ICollection<WebinarForDateListBlazorVM> Webinars { get; set; }
     }
 }

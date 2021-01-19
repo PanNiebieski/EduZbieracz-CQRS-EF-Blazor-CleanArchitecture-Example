@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EdoZbieracz.UI.ViewModels
 {
-    public class WebinarForDateListBlazorViewModel
+    public class WebinarBlazorVM
     {
         public int Id { get; set; }
 
@@ -24,5 +24,7 @@ namespace EdoZbieracz.UI.ViewModels
         public string WatchYoutubeLink { get; set; }
 
         public DateTime Date { get; set; }
+
+        public bool AlreadyHappend { get; set; }
     }
 }

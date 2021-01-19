@@ -8,23 +8,27 @@ namespace EduZbieracz.Application.Mapper
     {
         public MappingProfile()
         {
-            CreateMap<PostInListViewModel, PostBlazorViewModel>().ReverseMap();
-            CreateMap<PostDetailViewModel, PostDetailBlazorViewModel>().ReverseMap();
+            CreateMap<PostInListViewModel, PostInListBlazorVM>().ReverseMap();
+            CreateMap<PostDetailViewModel, PostDetailBlazorVM>().ReverseMap();
 
-            CreateMap<PostDetailBlazorViewModel, CreatedPostCommand>().ReverseMap();
-            CreateMap<PostDetailBlazorViewModel, UpdatePostCommand>().ReverseMap();
+            CreateMap<PostDetailBlazorVM, CreatedPostCommand>().ReverseMap();
+            CreateMap<PostDetailBlazorVM, UpdatePostCommand>().ReverseMap();
 
-            CreateMap<CategoryPostDto, PostInsideCategoryBlazorViewModel>().ReverseMap();
+            CreateMap<CategoryPostDto, PostInsideCategoryBlazorVM>().ReverseMap();
 
-            CreateMap<CategoryDto, CategoryBlazorViewModel>().ReverseMap();
+            CreateMap<CategoryDto, CategoryBlazorVM>().ReverseMap();
 
-            CreateMap<CategoryInListViewModel, CategoryBlazorViewModel>().ReverseMap();
+            CreateMap<CategoryInListViewModel, CategoryBlazorVM>().ReverseMap();
 
-            CreateMap<CategoryPostListViewModel, CategoryWithPostsBlazorViewModel>().ReverseMap();
-            CreateMap<CreatedCategoryCommand, CategoryBlazorViewModel>().ReverseMap();
+            CreateMap<CategoryPostListViewModel, CategoryWithPostsBlazorVM>().ReverseMap();
+            CreateMap<CreatedCategoryCommand, CategoryBlazorVM>().ReverseMap();
 
-            CreateMap<WebinarsByDateViewModel, WebinarForDateListBlazorViewModel>().ReverseMap();
-            CreateMap<PageWebinarByDateViewModel, WebinarPagedForDateBlazorViewModel>().ReverseMap();
+            CreateMap<WebinarsByDateViewModel, WebinarForDateListBlazorVM>().ReverseMap();
+            CreateMap<PageWebinarByDateViewModel, WebinarPagedForDateBlazorVM>().ReverseMap();
+
+
+            CreateMap<CreatedWebinarCommand, WebinarBlazorVM>().ReverseMap();
+            CreateMap<UpdateWebinarCommand, WebinarBlazorVM>().ReverseMap();
 
         }
     }

@@ -1,4 +1,5 @@
-﻿using EduZbieracz.Application.Contracts.Persistence;
+﻿using EduZbieracz.Application.Common;
+using EduZbieracz.Application.Contracts.Persistence;
 using EduZbieracz.Domain.Entities;
 using Moq;
 using System;
@@ -367,7 +368,7 @@ Zazwyczaj w tym cyklu pokazuje programy, z które moim bardzo zmieniają przepł
                 <Webinar>((entity) => { webinars.Remove(entity); webinars.Add(entity); });
 
             mockWebinarRepository.Setup(repo => repo.GetPagedWebinarsForDate
-            (It.IsAny<DateTime>(), It.IsAny<int>(), It.IsAny<int>()))
+            (It.IsAny<SearchOptionsWebinars>(), It.IsAny<int>(), It.IsAny<int>(), It.IsAny<DateTime?>()))
             .ReturnsAsync((DateTime date, int page, int pageSize) =>
             {
                 var matches = webinars.Where(x => x.Date.Month == date.Month && x.Date.Year == date.Year)
@@ -377,7 +378,7 @@ Zazwyczaj w tym cyklu pokazuje programy, z które moim bardzo zmieniają przepł
             });
 
             mockWebinarRepository.Setup(repo => repo.GetTotalCountOfWebinarsForDate
-            (It.IsAny<DateTime>()))
+            (It.IsAny<SearchOptionsWebinars>(), It.IsAny<DateTime?>()))
             .ReturnsAsync((DateTime date) =>
             {
                 var matches = webinars.Count

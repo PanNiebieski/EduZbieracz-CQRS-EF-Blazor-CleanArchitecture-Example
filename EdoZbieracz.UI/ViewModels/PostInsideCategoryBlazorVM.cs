@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EdoZbieracz.UI.ViewModels
 {
-    public class PostDetailBlazorViewModel
+    public class PostInsideCategoryBlazorVM
     {
         public int PostId { get; set; }
 
@@ -18,9 +18,6 @@ namespace EdoZbieracz.UI.ViewModels
 
         public DateTime Date { get; set; }
         public string Description { get; set; }
-
-        public int CategoryId { get; set; }
-        public CategoryBlazorViewModel Category { get; set; }
 
         public string ImageUrl { get; set; }
         public string Url { get; set; }

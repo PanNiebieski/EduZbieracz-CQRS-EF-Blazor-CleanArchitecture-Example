@@ -1,5 +1,85 @@
-﻿<h3>AddWebinar</h3>
+﻿@page "/addwebinar"
+@page "/addwebinar/{WebinarId}"
 
-@code {
+<h1 class="page-title">Details for @WebinarViewModel.Title</h1>
 
+@Message
+
+<EditForm Model="@WebinarViewModel" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary></ValidationSummary>
+
+    <div class="form-group row">
+        <label for="title" class="col-sm-3">Post title: </label>
+        <InputText id="title" class="form-control col-sm-8" @bind-Value="@WebinarViewModel.Title" placeholder="Enter post title"></InputText>
+        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => WebinarViewModel.Title)" />
+    </div>
+    <div class="form-group row">
+        <label for="imageUrl" class="col-sm-3">ImageUrl : </label>
+        <InputText id="imageUrl" class="form-control col-sm-8" @bind-Value="@WebinarViewModel.ImageUrl" placeholder="Enter Url"></InputText>
+        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => WebinarViewModel.ImageUrl)" />
+
+    </div>
+
+    <div class="form-group row">
+        <label for="slidesUrl" class="col-sm-3">SlidesUrl : </label>
+        <InputText id="slidesUrl" class="form-control col-sm-8" @bind-Value="@WebinarViewModel.SlidesUrl" placeholder="Enter price"></InputText>
+        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => WebinarViewModel.SlidesUrl)" />
+
+    </div>
+
+    <div class="form-group row">
+        <label for="watchFacebookLink" class="col-sm-3">WatchFacebookLink : </label>
+        <InputText id="watchFacebookLink" class="form-control col-sm-8" @bind-Value="@WebinarViewModel.WatchFacebookLink" placeholder="Enter price"></InputText>
+        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => WebinarViewModel.WatchFacebookLink)" />
+
+    </div>
+
+
+    <div class="form-group row">
+        <label for="watchFacebookLink" class="col-sm-3">WatchYoutubeLink : </label>
+        <InputText id="watchFacebookLink" class="form-control col-sm-8" @bind-Value="@WebinarViewModel.WatchYoutubeLink" placeholder="Enter price"></InputText>
+        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => WebinarViewModel.WatchYoutubeLink)" />
+
+    </div>
+
+
+    <div class="form-group row">
+        <label for="facebookEventUrl" class="col-sm-3">WatchYoutubeLink : </label>
+        <InputText id="facebookEventUrl" class="form-control col-sm-8" @bind-Value="@WebinarViewModel.FacebookEventUrl" placeholder="Enter price"></InputText>
+        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => WebinarViewModel.FacebookEventUrl)" />
+    </div>
+
+
+
+    <div class="form-group row">
+        <label for="date" class="col-sm-3">Webinar date: </label>
+        <InputDate id="date" class="form-control col-sm-8" @bind-Value="@WebinarViewModel.Date"></InputDate>
+    </div>
+
+    <div class="form-group row">
+        <label for="description" class="col-sm-3">Description: </label>
+        <InputTextArea id="description" class="form-control col-sm-8" @bind-Value="@WebinarViewModel.Description" placeholder="Enter description"></InputTextArea>
+        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => WebinarViewModel.Description)" />
+    </div>
+
+    <div class="form-group row">
+        <label for="imageurl" class="col-sm-3">Image: </label>
+        <InputText id="imageurl" class="form-control col-sm-8" @bind-Value="@WebinarViewModel.ImageUrl" placeholder="Enter image URL"></InputText>
+        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => WebinarViewModel.ImageUrl)" />
+    </div>
+
+
+
+    <button type="submit" class="submit-button">Save Webinar</button>
+
+</EditForm>
+
+@if (SelectedWebinarId != 0)
+{
+    <p>
+        <button @onclick="DeleteWebinar" class="delete-button">Delete post</button>
+    </p>
 }
+<br />
+<p class="back-to-catalog mt-3"><img src="img/back-arrow.svg" /><a @onclick="@NavigateToWebinar">Back to list</a></p>

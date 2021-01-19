@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using EduZbieracz.Application.Common;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,8 +8,9 @@ namespace EduZbieracz.Application.Functions.Webinars.Queries.GetWebinarListByDat
 {
     public class GetWebinarsByDateQuery : IRequest<PageWebinarByDateViewModel>
     {
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
         public int Page { get; set; }
         public int PageSize { get; set; }
+        public SearchOptionsWebinars Options { get; set; }
     }
 }

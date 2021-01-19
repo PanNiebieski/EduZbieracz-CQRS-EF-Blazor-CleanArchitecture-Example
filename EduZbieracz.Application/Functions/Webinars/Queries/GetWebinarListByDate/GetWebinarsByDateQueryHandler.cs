@@ -24,10 +24,10 @@ namespace EduZbieracz.Application.Functions.Webinars.Queries.GetWebinarListByDat
 
         public async Task<PageWebinarByDateViewModel> Handle(GetWebinarsByDateQuery request, CancellationToken cancellationToken)
         {
-            var list = await _webinarRepository.GetPagedWebinarsForDate(request.Date, request.Page, request.PageSize);
+            var list = await _webinarRepository.GetPagedWebinarsForDate(request.Options, request.Page, request.PageSize, request.Date);
             var webinars = _mapper.Map<List<WebinarsByDateViewModel>>(list);
 
-            var count = await _webinarRepository.GetTotalCountOfWebinarsForDate(request.Date);
+            var count = await _webinarRepository.GetTotalCountOfWebinarsForDate(request.Options, request.Date);
             return new PageWebinarByDateViewModel()
             {
                 AllCount = count,

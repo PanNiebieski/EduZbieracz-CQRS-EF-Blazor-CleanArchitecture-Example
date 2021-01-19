@@ -1,5 +1,19 @@
-﻿<h3>PostDetails</h3>
+﻿@page "/postdetails/{postid}"
 
-@code {
-
-}
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Post name</th>
+            <th>Post date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img src="@(PostDetailViewModel.ImageUrl)" class="post-image" /></td>
+            <td class="post-title">@PostDetailViewModel.Title </td>
+            <td class="post-date">@PostDetailViewModel.Date.ToShortDateString() </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,5 +1,44 @@
-﻿<h3>PostList</h3>
+﻿@page "/postlist"
 
-@code {
 
+<h3>Wpisy EduZbieracz</h3>
+
+<div class="m-2 d-flex justify-content-end">
+    <button @onclick="AddNewPost" class="mr-1">Add Post</button>
+</div>
+
+
+
+@if (Posts == null)
+{
+    <p><em>Loading...</em></p>
 }
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Post name</th>
+                <th>Post date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Posts)
+            {
+                <tr>
+                    <td><img src="@(p.ImageUrl)" class="post-image" /></td>
+                    <td class="post-title">@p.Title </td>
+                    <td class="post-date">@p.Date.ToShortDateString() </td>
+                    <td>
+                        <a href="@($"eventdetails/{p.PostId}")" class="post-button btn">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

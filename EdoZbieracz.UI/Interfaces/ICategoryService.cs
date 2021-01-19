@@ -9,10 +9,10 @@ namespace EdoZbieracz.UI.ClientServices
 {
     public interface ICategoryService
     {
-        Task<List<CategoryBlazorViewModel>> GetAllCategories();
-        Task<List<CategoryWithPostsBlazorViewModel>> GetAllCategoriesWithPosts
+        Task<List<CategoryBlazorVM>> GetAllCategories();
+        Task<List<CategoryWithPostsBlazorVM>> GetAllCategoriesWithPosts
             (SearchCategoryOptions searchCategoryOptions);
 
-        Task<ResponseFromApi<int>> CreateCategory(CategoryBlazorViewModel categoryViewModel);
+        Task<ResponseFromApi<int>> CreateCategory(CategoryBlazorVM categoryViewModel);
     }
 }

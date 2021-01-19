@@ -4,7 +4,23 @@
 
 <br />
 
-<p><input class="custom-checkbox" type="checkbox" id="includeHistory" />   Include past events?</p>
+<p>
+    <EditForm Model="@this">
+        <InputRadioGroup @bind-Value="@this.SelectValue">
+
+            <InputRadio Value="0" @onchange="OnChangeSearchOptionAsync" />
+            Wszystkie
+
+            <InputRadio Value="2" @onchange="OnChangeSearchOptionAsync" />
+            Pierwsze Najlepsze w tym Mięsiacy
+
+            <InputRadio Value="3" @onchange="OnChangeSearchOptionAsync" />
+            Pierwsze Najlepsze wszechczasów
+
+        </InputRadioGroup>
+    </EditForm>
+</p>
+<button @onclick="OnChangeSearchOptionAsync" class="mt-4">Search</button>
 
 @if (Categories == null)
 {

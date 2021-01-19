@@ -1,4 +1,8 @@
-﻿using EduZbieracz.Application.Functions.Webinars.Command;
+﻿using EduZbieracz.Application.Common;
+using EduZbieracz.Application.Functions.Webinars.Command;
+using EduZbieracz.Application.Functions.Webinars.Command.DeleteWebinar;
+using EduZbieracz.Application.Functions.Webinars.Command.UpdateWebinar;
+using EduZbieracz.Application.Functions.Webinars.Queries.GetWebinar;
 using EduZbieracz.Application.Functions.Webinars.Queries.GetWebinarListByDate;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -21,13 +25,13 @@ namespace EduZbieracz.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("/getwebinarfordate", Name = "GetPagedWebinarsForMonth")]
+        [HttpGet("/getwebinarfordate", Name = "GetPagedWebinarsForDate")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<PageWebinarByDateViewModel>> GetPagedOrdersForMonth(DateTime date, int page, int pagesize)
+        public async Task<ActionResult<PageWebinarByDateViewModel>> GetPagedOrdersForMonth(SearchOptionsWebinars searchOptionsWebinars, int page, int pagesize, DateTime? date)
         {
             var getWebinarForMonthQuery = new GetWebinarsByDateQuery()
-            { Date = date, Page = page, PageSize = pagesize };
+            { Date = date, Page = page, PageSize = pagesize, Options = searchOptionsWebinars };
             var pageWebinarsByDateViewModel = await _mediator.Send(getWebinarForMonthQuery);
 
             return Ok(pageWebinarsByDateViewModel);
@@ -39,6 +43,38 @@ namespace EduZbieracz.Api.Controllers
         {
             var result = await _mediator.Send(createWebinarCommand);
             return Ok(result.Id);
+        }
+
+        [HttpGet("{id}", Name = "GetWebinar")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult<int>> GetWebinarById(int id)
+        {
+            var result = await _mediator.Send((new GetWebinarQuery() { Id = id }));
+            return Ok(result.Id);
+        }
+
+        [HttpPut(Name = "UpdateWebinar")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> Update([FromBody] UpdateWebinarCommand updatePostCommand)
+        {
+            await _mediator.Send(updatePostCommand);
+
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}", Name = "DeleteWebinar")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var deletepostCommand = new DeleteWebinarCommand() { WebinarId = id };
+            await _mediator.Send(deletepostCommand);
+            return NoContent();
         }
     }
 }

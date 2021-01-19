@@ -39,6 +39,8 @@ namespace EdoZbieracz.UI
 
 
             builder.Services.AddScoped<ICategoryService, CategoryService>();
+            builder.Services.AddScoped<IWebinarService, WebinarService>();
+            builder.Services.AddScoped<IPostServices, PostServices>();
 
             await builder.Build().RunAsync();
         }

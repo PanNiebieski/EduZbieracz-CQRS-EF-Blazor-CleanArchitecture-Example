@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EdoZbieracz.UI.ViewModels
 {
-    public class PostBlazorViewModel
+    public class PostInListBlazorVM
     {
         public int PostId { get; set; }
         public string Title { get; set; }

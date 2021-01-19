@@ -16,14 +16,26 @@ namespace EdoZbieracz.UI.Pages
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
-        public ICollection<CategoryWithPostsBlazorViewModel> Categories { get; set; }
+        [Parameter]
+        public int SelectValue { get; set; }
+
+        public ICollection<CategoryWithPostsBlazorVM> Categories { get; set; }
 
         protected async override Task OnInitializedAsync()
         {
+            SelectValue = 0;
             Categories = await CategoryService.GetAllCategoriesWithPosts(
                 Services.SearchCategoryOptions._0);
         }
 
+        private async Task OnChangeSearchOptionAsync(EventArgs args)
+        {
+            int searchoptions = SelectValue;
+            Categories = null;
+
+            Categories = await CategoryService.GetAllCategoriesWithPosts(
+                (Services.SearchCategoryOptions)searchoptions);
+        }
 
     }
 }

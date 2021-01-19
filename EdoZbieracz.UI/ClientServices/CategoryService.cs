@@ -20,7 +20,7 @@ namespace EdoZbieracz.UI.ClientServices
             _mapper = mapper;
         }
 
-        public async Task<ResponseFromApi<int>> CreateCategory(CategoryBlazorViewModel categoryViewModel)
+        public async Task<ResponseFromApi<int>> CreateCategory(CategoryBlazorVM categoryViewModel)
         {
             try
             {
@@ -48,17 +48,17 @@ namespace EdoZbieracz.UI.ClientServices
             }
         }
 
-        public async Task<List<CategoryBlazorViewModel>> GetAllCategories()
+        public async Task<List<CategoryBlazorVM>> GetAllCategories()
         {
             var allCategories = await _client.GetAllCategoriesAsync();
-            var mappedCategories = _mapper.Map<ICollection<CategoryBlazorViewModel>>(allCategories);
+            var mappedCategories = _mapper.Map<ICollection<CategoryBlazorVM>>(allCategories);
             return mappedCategories.ToList();
         }
 
-        public async Task<List<CategoryWithPostsBlazorViewModel>> GetAllCategoriesWithPosts(SearchCategoryOptions searchCategoryOptions)
+        public async Task<List<CategoryWithPostsBlazorVM>> GetAllCategoriesWithPosts(SearchCategoryOptions searchCategoryOptions)
         {
             var allCategories = await _client.GetCategoriesWithPostsAsync(searchCategoryOptions);
-            var mappedCategories = _mapper.Map<ICollection<CategoryWithPostsBlazorViewModel>>(allCategories);
+            var mappedCategories = _mapper.Map<ICollection<CategoryWithPostsBlazorVM>>(allCategories);
             return mappedCategories.ToList();
         }
 
