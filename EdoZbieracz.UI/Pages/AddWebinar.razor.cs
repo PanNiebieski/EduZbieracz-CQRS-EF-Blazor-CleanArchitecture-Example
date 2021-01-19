@@ -31,6 +31,7 @@ namespace EdoZbieracz.UI.Pages
             {
                 WebinarViewModel = await WebinarService.GetWebinarById(SelectedWebinarId);
             }
+
         }
 
         protected async Task HandleValidSubmit()

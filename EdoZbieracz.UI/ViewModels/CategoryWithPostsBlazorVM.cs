@@ -9,7 +9,7 @@ namespace EdoZbieracz.UI.ViewModels
     {
         public int CategoryId { get; set; }
         public string Name { get; set; }
-        public string Display { get; set; }
+        public string DisplayName { get; set; }
         public ICollection<PostInsideCategoryBlazorVM> Posts { get; set; }
     }
 }

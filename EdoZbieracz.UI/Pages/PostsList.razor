@@ -1,11 +1,10 @@
 ﻿@page "/postlist"
+@page "/postlist/editmode/{EditMode}"
 
 
 <h3>Wpisy EduZbieracz</h3>
 
-<div class="m-2 d-flex justify-content-end">
-    <button @onclick="AddNewPost" class="mr-1">Add Post</button>
-</div>
+
 
 
 
@@ -32,10 +31,18 @@ else
                     <td class="post-title">@p.Title </td>
                     <td class="post-date">@p.Date.ToShortDateString() </td>
                     <td>
-                        <a href="@($"eventdetails/{p.PostId}")" class="post-button btn">
-                            <i class="fas fa-edit"></i>
+                        <a href="@($"postdetails/{p.PostId}")" class="post-button btn">
+                            <i class="fas fa-edit">Więcej</i>
                         </a>
                     </td>
+                    @if (EditMode == "yes")
+                    {
+                        <td>
+                            <a href="@($"addpost/{p.PostId}")" class="post-button btn admin-button">
+                                <i class="fas fa-edit">Edytuj</i>
+                            </a>
+                        </td>
+                    }
                 </tr>
             }
         </tbody>

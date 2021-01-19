@@ -1,68 +1,93 @@
 ﻿@page "/categorywithposts"
 
-<h3>Event Category Overview</h3>
+
+<h3>Wpisy po Kategoriach</h3>
 
 <br />
 
 <p>
     <EditForm Model="@this">
-        <InputRadioGroup @bind-Value="@this.SelectValue">
+        <ul>
+            <InputRadioGroup @bind-Value="@this.SelectValue">
+                <li>
+                    <InputRadio Value="0" @onchange="OnChangeSearchOptionAsync" />
+                    Wszystkie
 
-            <InputRadio Value="0" @onchange="OnChangeSearchOptionAsync" />
-            Wszystkie
-
-            <InputRadio Value="2" @onchange="OnChangeSearchOptionAsync" />
-            Pierwsze Najlepsze w tym Mięsiacy
-
-            <InputRadio Value="3" @onchange="OnChangeSearchOptionAsync" />
-            Pierwsze Najlepsze wszechczasów
-
-        </InputRadioGroup>
+                </li>
+                <li>
+                    <InputRadio Value="2" @onchange="OnChangeSearchOptionAsync" />
+                    Pierwsze Najlepsze w tym Mięsiacy
+                </li>
+                <li>
+                    <InputRadio Value="3" @onchange="OnChangeSearchOptionAsync" />
+                    Pierwsze Najlepsze wszechczasów
+                </li>
+            </InputRadioGroup>
+        </ul>
     </EditForm>
 </p>
-<button @onclick="OnChangeSearchOptionAsync" class="mt-4">Search</button>
-
+<button @onclick="OnChangeSearchOptionAsync" class="mt-4">Szukaj</button>
+<br />
+<br />
 @if (Categories == null)
 {
-    <p><em>Loading...</em></p>
+    <p><em>Wczytuje...</em></p>
 }
 else
 {
     <table>
         <thead>
             <tr>
-                <th>Category name</th>
+                <th>Nazwa Kategorii</th>
             </tr>
         </thead>
         <tbody>
+
+
             @foreach (var cat in Categories)
             {
                 <tr>
-                    <td>@cat.Name </td>
+                    <td><h4>@cat.DisplayName</h4> </td>
                 </tr>
                 <tr>
                     <td>
-                        <table class="nested-table ml-auto mr-auto">
-                            <thead>
-                                <tr>
-                                    <th>Tytuł</th>
-                                    <th class="category-event-header">Data</th>
-                                    <th class="category-event-header">Twórca</th>
-                                    <th class="category-event-header">Cena</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var ev in cat.Posts)
-                                {
+                        @if (cat.Posts.Count == 0)
+                        {
+                            <p>Brak Wpisów</p>
+                        }
+                        else
+                        {
+                            <table class="nested-table ml-auto mr-auto">
+                                <thead>
                                     <tr>
-                                        <td class="event-name">@ev.Title </td>
-                                        <td class="event-date">@ev.Date.ToShortDateString() </td>
-                                        <td class="event-artist">@ev.Author</td>
-                                        <td class="event-price">@ev.Title</td>
+                                        <th></th>
+                                        <th>Tytuł</th>
+                                        <th class="category-post-header">Data</th>
+                                        <th class="category-post-header">Twórca</th>
+                                        <th class="category-post-header">Ocena</th>
+                                        <th class="category-post-header">Link</th>
                                     </tr>
-                                }
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @foreach (var p in cat.Posts)
+                                    {
+                                        <tr>
+                                            <td><img src="@(p.ImageUrl)" style="width:100px" class="" /></td>
+                                            <td class="post-title">@p.Title </td>
+                                            <td class="post-date">@p.Date.ToShortDateString() </td>
+                                            <td class="post-author">@p.Author</td>
+                                            <td class="post-price">@p.Rate</td>
+                                            <td>
+                                                <a href="@($"postdetails/{p.PostId}")" class="post-button btn">
+                                                    <i class="fas fa-edit">Więcej</i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+
                     </td>
                 </tr>
             }

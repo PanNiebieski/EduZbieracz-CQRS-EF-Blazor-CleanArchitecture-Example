@@ -1,4 +1,5 @@
 ﻿@page "/webinars"
+@page "/webinars/editmode/{EditMode}"
 
 <h3 class="mb-5">Webinars</h3>
 
@@ -32,65 +33,81 @@
 
 @if (webinarsList == null)
 {
-    <p><em>Nie ma webinarów</em></p>
+    <p><em>Wybierz opcje</em></p>
 }
-else
+@if (webinarsList != null)
 {
-    <table>
-        <thead>
-            <tr>
-                <th></th>
-                <th>title</th>
-                <th>date</th>
-                <th>slideurl</th>
-                <th>WatchFacebookLink</th>
-                <th>WatchYoutubeLink</th>
-                <th>FacebookEventUrl</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var p in webinarsList)
-            {
+    @if (webinarsList.LongCount() == 0)
+    {
+        <p><em>Nie ma webinarów dla tego wyszukiwania</em></p>
+    }
+
+    @if (webinarsList.LongCount() > 0)
+    {
+        <table>
+            <thead>
                 <tr>
-                    <td><img src="@(p.ImageUrl)" class="webinar-image" /></td>
-                    <td class="webinar-title">@p.Title </td>
-                    <td class="webinar-date">@p.Date.ToShortDateString() </td>
-                    <td class="webinar-slideurl">
-                        <a href="@(p.SlidesUrl)" class="post-button btn">
-                            Slajdy
-                        </a>
-                    </td>
-                    @if (!string.IsNullOrWhiteSpace(p.WatchFacebookLink))
-                    {
-                        <td class="webinar-slideurl">
-                            <a href="@(p.WatchFacebookLink)" class="post-button btn">
-                                Obejrz na Facebooku
-                            </a>
-                        </td>
-                    }
-                    @if (!string.IsNullOrWhiteSpace(p.WatchYoutubeLink))
-                    {
-                        <td class="webinar-slideurl">
-                            <a href="@(p.WatchYoutubeLink)" class="post-button btn">
-                                Obejrz na YouTube
-                            </a>
-                        </td>
-                    }
-                    @if (!string.IsNullOrWhiteSpace(p.FacebookEventUrl))
-                    {
-                        <td class="webinar-slideurl">
-                            <a href="@(p.FacebookEventUrl)" class="post-button btn">
-                                Link do wydarzenia
-                            </a>
-                        </td>
-                    }
+                    <th style="width:150px;"></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var p in webinarsList)
+                {
+                    <tr>
+                        <td><img src="@(p.ImageUrl)" style="width:150px" class="webinar-image" /></td>
+                        <td class="webinar-title">@p.Title </td>
+                        <td class="webinar-date">@p.Date.ToShortDateString() </td>
+                        <td class="webinar-slideurl">
+                            <a href="@(p.SlidesUrl)" class="post-button btn">
+                                Slajdy
+                            </a>
+                        </td>
+                        @if (!string.IsNullOrWhiteSpace(p.WatchFacebookLink))
+                        {
+                            <td class="webinar-slideurl">
+                                <a href="@(p.WatchFacebookLink)" class="post-button btn">
+                                    Obejrz na Facebooku
+                                </a>
+                            </td>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(p.WatchYoutubeLink))
+                        {
+                            <td class="webinar-slideurl">
+                                <a href="@(p.WatchYoutubeLink)" class="post-button btn">
+                                    Obejrz na YouTube
+                                </a>
+                            </td>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(p.FacebookEventUrl))
+                        {
+                            <td class="webinar-slideurl">
+                                <a href="@(p.FacebookEventUrl)" class="post-button btn">
+                                    Link do wydarzenia
+                                </a>
+                            </td>
+                        }
+                        @if (EditMode == "yes")
+                        {
+                            <td>
+                                <a href="@($"addwebinar/{p.Id}")" class="post-button btn admin-button">
+                                    <i class="fas fa-edit">Edytuj</i>
+                                </a>
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
 
 
-    <Pager PageIndex="@paginatedList.PageIndex" TotalPages=@paginatedList.TotalPages OnClick="PageIndexChanged"
-           HasNextPage=@paginatedList.HasNextPage HasPreviousPage=@paginatedList.HasPreviousPage>
-    </Pager>
+        <Pager PageIndex="@paginatedList.PageIndex" TotalPages=@paginatedList.TotalPages OnClick="PageIndexChanged"
+               HasNextPage=@paginatedList.HasNextPage HasPreviousPage=@paginatedList.HasPreviousPage>
+        </Pager>
+    }
 }

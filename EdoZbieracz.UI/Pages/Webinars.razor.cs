@@ -17,6 +17,9 @@ namespace EdoZbieracz.UI.Pages
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
+        [Parameter]
+        public string EditMode { get; set; }
+
         public string SelectedMonth { get; set; }
         public string SelectedYear { get; set; }
 

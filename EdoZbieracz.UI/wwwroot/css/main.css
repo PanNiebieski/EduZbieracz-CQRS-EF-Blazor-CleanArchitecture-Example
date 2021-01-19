@@ -1,0 +1,209 @@
+:root {
+    --main-color-1: #b55151;
+    --main-backgoround-1: rgba(181, 81, 81, 0.10);
+    --delete-backgoround-1: rgba(181, 81, 81, 0.10);
+    --main-color-2: #ab51b5;
+}
+
+html, body {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+    padding: 0 !important;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+header {
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 17px 37px;
+}
+
+    header h1 {
+        margin: 0;
+    }
+
+        header h1 img {
+            width: 200px;
+        }
+
+.sidebar {
+    background: rgba(55, 0, 0, 0.90) !important;
+    background-image: none;
+    height: calc(100vh - 93.44px);
+    min-width: 220px;
+    padding-top: 25px;
+}
+
+.list-group-item {
+    background: rgb(248,248,248);
+}
+
+    .list-group-item.active {
+        background: rgba(81, 181, 177, 0.1);
+        color: black;
+    }
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}
+
+.page-title {
+    color: var(--main-color-1);
+    font-size: 2rem;
+}
+
+button {
+    background: var(--main-backgoround-1);
+    border: 1px solid var(--main-color-1);
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: var(--main-color-1);
+    font-size: 12px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 12px;
+    margin-left: 25px;
+    text-transform: uppercase;
+    width: 200px;
+}
+
+
+
+.submit-button {
+    background: var(--main-color-1);
+    color: #fff;
+}
+
+.delete-button {
+    background: rgba(255,0,0,0.2);
+    border: 1px solid #f00;
+    color: #f00;
+}
+
+.login-field {
+    min-width: 300px;
+    max-width: 500px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 15px 15px;
+    vertical-align: middle;
+}
+
+thead {
+    background: #fff;
+    border-bottom: 1px solid #cecfd5;
+    color: #6F6F6F;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 12px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+td, th {
+    border-bottom: 1px solid #cecfd5;
+}
+
+.post-image {
+    width: 200px;
+    line-height: 12px;
+}
+
+.post-date,
+.post-title,
+.post-author,
+.post-price {
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 14px;
+    text-transform: capitalize;
+}
+
+.post-title {
+    line-height: 1.5;
+    min-width: 350px;
+    color: var(--main-color-1);
+    font-size: 18px;
+}
+
+.category-post-header {
+    width: 300px;
+}
+
+.post-button {
+    background: var(--main-color-1);
+    color: #fff !important;
+}
+
+.nested-table {
+    width: 90%;
+}
+
+.back-to-catalog a {
+    color: var(--main-color-1);
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 22px;
+    padding-left: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 992px) {
+    .ticket-sales-table {
+        width: 70%;
+    }
+}
+
+.pager button, .pager span {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.pager-btn {
+    width: 75px;
+    background: var(--main-color-1);
+    color: #fff;
+}
+
+.pager-btn-disabled {
+    width: 75px;
+    background: var(--main-backgoround-1);
+    color: var(--main-color-1);
+}
+
+.back-link {
+    color: var(--main-color-1) !important;
+    font-weight: bold !important;
+    padding: 5px;
+    border: 1px dashed var(--main-color-1);
+}
+
+.admin-button {
+    background: var(--main-color-2);
+    border: 1px solid var(--main-color-2);
+    color: #fff;
+}

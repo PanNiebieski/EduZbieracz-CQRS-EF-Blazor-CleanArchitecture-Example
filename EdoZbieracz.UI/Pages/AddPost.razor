@@ -23,14 +23,14 @@
 
     <div class="form-group row">
         <label for="rate" class="col-sm-3">Rate : </label>
-        <InputNumber id="rate" class="form-control col-sm-8" @bind-Value="@PostDetailViewModel.Rate" placeholder="Enter price"></InputNumber>
+        <InputNumber id="rate" class="form-control col-sm-8" @bind-Value="@PostDetailViewModel.Rate" placeholder="Enter rate"></InputNumber>
         <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => PostDetailViewModel.Rate)" />
 
     </div>
 
     <div class="form-group row">
         <label for="author" class="col-sm-3">Author name: </label>
-        <InputText id="author" class="form-control col-sm-8" @bind-Value="@PostDetailViewModel.Author" placeholder="Enter artist"></InputText>
+        <InputText id="author" class="form-control col-sm-8" @bind-Value="@PostDetailViewModel.Author" placeholder="Enter author"></InputText>
         <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => PostDetailViewModel.Author)" />
 
     </div>
@@ -62,15 +62,17 @@
         </InputSelect>
     </div>
 
-    <button type="submit" class="submit-button">Save Post</button>
+    <button type="submit" class="submit-button">Zapisz</button>
 
 </EditForm>
 
 @if (SelectedPostId != 0)
 {
+    <br />
+    <br />
     <p>
-        <button @onclick="DeletePost" class="delete-button">Delete post</button>
+        <button @onclick="DeletePost" class="delete-button">Skasuje</button>
     </p>
 }
 <br />
-<p class="back-to-catalog mt-3"><img src="img/back-arrow.svg" /><a @onclick="@NavigateToPosts">Back to list</a></p>
+<p class="back-to-catalog mt-3"><a class="back-link" @onclick="@NavigateToPosts">---- Powrót do listy  ----</a></p>

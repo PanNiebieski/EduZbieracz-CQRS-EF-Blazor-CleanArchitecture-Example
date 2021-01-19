@@ -48,10 +48,10 @@ namespace EduZbieracz.Api.Controllers
         [HttpGet("{id}", Name = "GetWebinar")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<int>> GetWebinarById(int id)
+        public async Task<ActionResult<WebinarViewModel>> GetWebinarById(int id)
         {
             var result = await _mediator.Send((new GetWebinarQuery() { Id = id }));
-            return Ok(result.Id);
+            return Ok(result);
         }
 
         [HttpPut(Name = "UpdateWebinar")]

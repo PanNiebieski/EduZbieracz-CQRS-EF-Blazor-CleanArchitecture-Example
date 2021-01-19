@@ -12,7 +12,7 @@ namespace EduZbieracz.Application.Functions.Categories.Queries.GetCategoryListWi
         public DateTime Date { get; set; }
         public string ImageUrl { get; set; }
         public int Rate { get; set; }
-
+        public string Url { get; set; }
         public int CategoryId { get; set; }
     }
 }

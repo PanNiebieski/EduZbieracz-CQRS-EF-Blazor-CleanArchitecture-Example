@@ -25,7 +25,7 @@ namespace EduZbieracz.Application.Mapper
 
             CreateMap<WebinarsByDateViewModel, WebinarForDateListBlazorVM>().ReverseMap();
             CreateMap<PageWebinarByDateViewModel, WebinarPagedForDateBlazorVM>().ReverseMap();
-
+            CreateMap<WebinarViewModel, WebinarBlazorVM>().ReverseMap();
 
             CreateMap<CreatedWebinarCommand, WebinarBlazorVM>().ReverseMap();
             CreateMap<UpdateWebinarCommand, WebinarBlazorVM>().ReverseMap();

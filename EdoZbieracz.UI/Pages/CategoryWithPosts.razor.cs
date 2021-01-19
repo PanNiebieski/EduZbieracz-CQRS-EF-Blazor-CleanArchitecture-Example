@@ -17,6 +17,9 @@ namespace EdoZbieracz.UI.Pages
         public NavigationManager NavigationManager { get; set; }
 
         [Parameter]
+        public string EditMode { get; set; }
+
+        [Parameter]
         public int SelectValue { get; set; }
 
         public ICollection<CategoryWithPostsBlazorVM> Categories { get; set; }

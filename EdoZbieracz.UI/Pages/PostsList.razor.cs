@@ -17,6 +17,9 @@ namespace EdoZbieracz.UI.Pages
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
+        [Parameter]
+        public string EditMode { get; set; }
+
         public ICollection<PostInListBlazorVM> Posts { get; set; }
 
         protected async override Task OnInitializedAsync()

@@ -1,19 +1,52 @@
-﻿@page "/postdetails/{postid}"
+﻿@page "/postdetails/{PostId}"
 
-<table>
-    <thead>
-        <tr>
-            <th></th>
-            <th>Post name</th>
-            <th>Post date</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><img src="@(PostDetailViewModel.ImageUrl)" class="post-image" /></td>
-            <td class="post-title">@PostDetailViewModel.Title </td>
-            <td class="post-date">@PostDetailViewModel.Date.ToShortDateString() </td>
-        </tr>
-    </tbody>
-</table>
+
+@if (SelectedPostId != 0)
+{
+
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="@(PostDetailViewModel.ImageUrl)" class="" /></td>
+            </tr>
+            <tr>
+                <td class="post-title">Autor : @PostDetailViewModel.Author </td>
+            </tr>
+            <tr>
+                <td class="post-title">Ocena : @PostDetailViewModel.Rate </td>
+            </tr>
+            <tr>
+                <td class="post-title">Data : @PostDetailViewModel.Date.ToShortDateString() </td>
+            </tr>
+            <tr>
+                <td>Tytuł : <span class="post-title">@PostDetailViewModel.Title</span> </td>
+            </tr>
+            <tr>
+                <td class="post-desc">Opis : </td>
+            </tr>
+            <tr>
+                <td class="post-desc">@PostDetailViewModel.Description </td>
+            </tr>
+            <tr>
+                <td class="post-link">
+                    <a href="@PostDetailViewModel.Url" class="post-button btn">
+                        Przeczytaj
+                    </a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+}
+<br />
+<br />
+<br />
+<br />
+<p class="back-to-catalog mt-3">  <a class="back-link" @onclick="@NavigateToPosts">---- Powrót do listy ----</a></p>
