@@ -20,15 +20,28 @@ namespace EdoZbieracz.UI.ClientServices
         {
             if (ex.StatusCode == 400)
             {
-                return new ResponseFromApi<int>() { Message = "Validation errors have occured.", ValidationErrors = ex.Response, Success = false };
+                return new ResponseFromApi<int>()
+                {
+                    Message = "Validation errors have occured.",
+                    ValidationErrors = ex.Response,
+                    Success = false
+                };
             }
             else if (ex.StatusCode == 404)
             {
-                return new ResponseFromApi<int>() { Message = "The requested item could not be found.", Success = false };
+                return new ResponseFromApi<int>()
+                {
+                    Message = "The requested item could not be found.",
+                    Success = false
+                };
             }
             else
             {
-                return new ResponseFromApi<int>() { Message = "Something went wrong, please try again.", Success = false };
+                return new ResponseFromApi<int>()
+                {
+                    Message = "Something went wrong, please try again.",
+                    Success = false
+                };
             }
         }
 
